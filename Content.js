@@ -35,15 +35,22 @@ $("#mytooltip").click(function(e){
     $("#mytooltip").hide(); 	
 });
 
-var tst;
-
 //function that find the main content
-$(MainBody).find("p").each(function(index,pasg){
-   $("#mytooltip").append("<p>"+pasg.text()+"</p>");
-   tst=pasg.text();
-});
+/* $(MainBody).find("p").each(function(index,pasg){
+   $("#mytooltip").append("<p>"+$(pasg).text()+"</p>");
+   //tst=pasg.text();
+}); */
+//reserved
 
-alert(tst);
+var content = $("div[id*='content']"); 
+var contentA = $("div[id*='content']");
+var main = $("div[id*='main']");
+
+$("#mytooltip").append(content);
+
+
+
+
 
 
 	

@@ -6,7 +6,7 @@
   color:#333;
   display: inline;
   z-index:99999;
-  width: 500px;
+  min-width: 500px;
   top: 10px;
   left: 10px;
   word-wrap:break-word;
