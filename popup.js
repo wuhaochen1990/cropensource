@@ -18,7 +18,7 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 });
 
 function click(e) {
-  chrome.tabs.create( {url:"about:blank"}, test );      
+  chrome.tabs.create( {url:"C:\\Users\\Fleksin\\PageMerger\\result.html"}, test );      
     //chrome.tabs.executeScript(null,{file: "Filter.js"},function(){});
  
 }

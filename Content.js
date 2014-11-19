@@ -46,7 +46,7 @@ var content = $("div[id*='content']");
 var contentA = $("div[id*='content']");
 var main = $("div[id*='main']");
 
-$("#mytooltip").append(content);
+//$("#mytooltip").append(content);
 
 
 
