@@ -4,7 +4,7 @@
   background:white;
   padding:10px;
   color:#333;
-  display: inline;
+ /*  display: inline; */
   z-index:99999;
   min-width: 500px;
   top: 10px;

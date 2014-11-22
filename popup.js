@@ -3,24 +3,23 @@
 // found in the LICENSE file.
  
 $(document).ready(function(){
-//$("body").append("<p>working!!</p>");
-chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {  
+
+chrome.tabs.query({active: true, currentWindow: true}, function(tabs) { 
+ 
   chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
-   
+    
     console.log(response.nod);
 	$("body").append("<p>"+ response.nod + "</p>");
-	$(response.url).each(function(index,link){
-     	$("body").append("<p>"+ link + "</p>");
-	});
-	
+	$("body").append("<p>working!!</p>");
+	//$("body").append(response.main);	
 	
   });
 });
 
+var relaUrl=chrome.extension.getURL("result.html");
+
 function click(e) {
-  chrome.tabs.create( {url:"C:\\Users\\Fleksin\\PageMerger\\result.html"}, test );      
-    //chrome.tabs.executeScript(null,{file: "Filter.js"},function(){});
- 
+  chrome.tabs.create( {url: relaUrl}, test );      
 }
 
 function  test(tab){
@@ -31,5 +30,31 @@ function  test(tab){
 	)
 };
 
+function Hide(e){
+  chrome.tabs.executeScript({code:"$('#mytooltip').css('display','none');"});
+  
+}
+
+function Show(e){
+  chrome.tabs.executeScript({code:"$('#mytooltip').css('display','incline');"});
+ 
+}
+
 $("#OpenTab").click(click);
+
+$("#HideFloatDiv").click(Hide);
+
+$("#ShowFloatDiv").click(Show);
+
+chrome.tabs.query({},function(tabs){
+    tabs.forEach(function(tab){
+	    var url = tab.url;
+		$("#urls").append("<input type='checkbox' >"+url+"<br>");
+	});
+
 });
+
+
+
+});
+
