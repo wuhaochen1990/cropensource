@@ -49,7 +49,8 @@ $("#ShowFloatDiv").click(Show);
 chrome.tabs.query({},function(tabs){
     tabs.forEach(function(tab){
 	    var url = tab.url;
-		$("#urls").append("<input type='checkbox' >"+url+"<br>");
+      var title = tab.title;
+		$("#urls").append("<input type='checkbox' >"+title+"<br>");
 	});
 
 });

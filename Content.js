@@ -13,7 +13,7 @@ $("div").hover(
 		divColor = $(this).css("background-color");
 		$(this).css({"background-color":"yellow"});
 		$(this).click(function(){
-			alert("hello");
+			//store the div in local 
 		});
 
 	},function(){
