@@ -31,8 +31,6 @@ $("div").hover(
 
 );
 
-
- 
  chrome.runtime.onMessage.addListener(
    function(request, sender, sendResponse){                             //this is where its not working
    

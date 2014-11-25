@@ -15,7 +15,7 @@
   "content_scripts": [
   {
     "matches": ["http://*/*"],
-    "js":["jquery-1.11.1.min.js","jquery.json.js","Content.js"],
+    "js":["jquery-1.11.1.min.js","Content.js"],
     "css": ["style.css"]	
   }
   ],

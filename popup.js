@@ -21,7 +21,7 @@ function click(e) {
   $('input:checkbox:checked').each(function(){
 	urlList.push($(this).val());
   });
-  alert(urlList);
+  //alert(urlList);
   chrome.tabs.create( {url: relaUrl}, test );      
 }
 
