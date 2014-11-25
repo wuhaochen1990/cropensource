@@ -12,14 +12,19 @@ $("#mytooltip").click(function(e){
 });
 $("div").hover(
 	function(){
+	   if(stat == "on"){
 		divColor = $(this).css("background-color");
 		$(this).css({"background-color":"yellow"});
 		$(this).click(function(){
 			//
 		});
+		}
+	   //if(stat=="not changing"){alert('!!!');}
 
 	},function(){
+	   if(stat == "on"){
 		$(this).css({"background-color":divColor});
+		}
 
 	}
 
@@ -35,10 +40,13 @@ $("div").hover(
                nod: stat
 		     };                                                               
                                                           
-   ChangeOrNot = request.greeting;
+   ChangeOrNot = request.turn;
+   if(request.greeting=="hello")stat = "on";
+   else stat="off";
    sendResponse(Mcont);
     //alert("hello end");
 });	
+
 
 
 
