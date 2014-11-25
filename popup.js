@@ -2,12 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
  var stat;
- 
+ var urlList = new Array();
+  
 chrome.tabs.query({},function(tabs){
     tabs.forEach(function(tab){
 	    var url = tab.url;
       var title = tab.title;
-		$("#urls").append("<input type='checkbox' >"+title+"<br>");
+		$("#urls").append("<input type='checkbox' value = "+ url + " >"+title+"<br>");
 	});
 
 });
@@ -17,6 +18,10 @@ $(document).ready(function(){
 var relaUrl=chrome.extension.getURL("result.html");
 
 function click(e) {
+  $('input:checkbox:checked').each(function(){
+	urlList.push($(this).val());
+  });
+  alert(urlList);
   chrome.tabs.create( {url: relaUrl}, test );      
 }
 
