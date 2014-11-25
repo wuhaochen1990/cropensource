@@ -2,6 +2,8 @@ var max=0;
 var current;
 var MainBody;
 var divColor;
+var ChangeOrNot=false;
+var stat = "not changing";
 
 $("body").append("<div id='mytooltip'>Summary</div>");
 
@@ -13,7 +15,7 @@ $("div").hover(
 		divColor = $(this).css("background-color");
 		$(this).css({"background-color":"yellow"});
 		$(this).click(function(){
-			//store the div in local 
+			//
 		});
 
 	},function(){
@@ -24,26 +26,18 @@ $("div").hover(
 
 );
 
-var content = $("div[id*='content']"); 
-var contentA = $("div[id*='content']");
-var main = $("div[id*='main']");
 
-//$("#mytooltip").append(content);
- //$("#ThyResult").append(content);
- //alert("!!!");
- //var tstJson = $.toJSON(content);
  
  chrome.runtime.onMessage.addListener(
    function(request, sender, sendResponse){                             //this is where its not working
    
    var Mcont={ //main: tstJson,
-               nod: "get it!!"
-		     };                                                                //working
-      
-   //var test = { nod: "get it !!"};                                                              //working
-  
+               nod: stat
+		     };                                                               
+                                                          
+   ChangeOrNot = request.greeting;
    sendResponse(Mcont);
-   
+    //alert("hello end");
 });	
 
 

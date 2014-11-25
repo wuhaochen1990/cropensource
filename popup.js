@@ -8,8 +8,17 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
  
   chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
     
-    console.log(response.nod);
-	$("body").append("<p>"+ response.nod + "</p>");
+     stat = response.nod;
+	// alert("hello front");
+	if(stat == "not changing")
+	{
+     	$("#customize").text('customize off');
+    }
+    else if(stat == "changing"){
+        $("#customize").text('customize on');
+    }
+
+	$("body").append("<p>"+ stat + "</p>");
 	$("body").append("<p>working!!</p>");
 	//$("body").append(response.main);	
 	
