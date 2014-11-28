@@ -22,15 +22,18 @@ function click(e) {
 	urlList.push($(this).val());
   });
   //alert(urlList);
+  chrome.runtime.sendMessage({greeting: "linksToBack", links: urlList}, function(r){});
   chrome.tabs.create( {url: relaUrl}, test );      
 }
 
 function  test(tab){
+    
+    alert("~~?");
     chrome.tabs.executeScript(
 	tab.id,
-    {code:"alert('!!!');"},
+    {code:"alert('!!!');$('body').append('<p>lalala</p>');"},
     function(){} 
-	)
+	);
 };
 
 function ON(e){
@@ -67,12 +70,28 @@ function OFF(e){
   
 }
 
+var tstA=new Array("aaaa","bbbb");
+
+function testButton(e){
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) { 
+       chrome.tabs.sendMessage(tabs[0].id, {greeting: "array", array: tstA}, function(response) {
+	      
+    
+        });
+    });
+}
+
+
 $("#OpenTab").click(click);
 
 $("#ON").click(ON);
 
 $("#OFF").click(OFF);
 
+
+$("body").append("<button id='testB'>sendArray</button>");
+
+$("#testB").click(testButton);
 
 });
 

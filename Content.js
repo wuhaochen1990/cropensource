@@ -33,14 +33,15 @@ $("div").hover(
 
  chrome.runtime.onMessage.addListener(
    function(request, sender, sendResponse){                             //this is where its not working
-   
-   var Mcont={ //main: tstJson,
-               nod: stat
-		     };                                                               
-                                                          
+                                            
    ChangeOrNot = request.turn;
    if(request.greeting=="hello")stat = "on";
    else stat="off";
+    
+   var Mcont={ //main: tstJson,
+               nod: stat
+		     };                                                               
+   //if(request.greeting == "array")alert(request.array);             
    sendResponse(Mcont);
     //alert("hello end");
 });	
