@@ -1,6 +1,3 @@
-var max=0;
-var current;
-var MainBody;
 var divColor;
 var ChangeOrNot=false;
 var stat = "not changing";
@@ -22,13 +19,11 @@ $("div").hover(
 	   //if(stat=="not changing"){alert('!!!');}
 
 	},function(){
-	   if(stat == "on"){
+	   // if(stat == "on"){
 		$(this).css({"background-color":divColor});
-		}
+		//}
 
 	}
-
-
 );
 
  chrome.runtime.onMessage.addListener(
