@@ -18,6 +18,9 @@ window.onload = function(){
 		
 });
 
+alert("@@!");
+$("iframe").load(function(){
+    
     var divColor;
 	var stat = "on";
 	$("div").hover(
@@ -38,6 +41,7 @@ window.onload = function(){
 		    }
 	    }
     );
-	alert("@@!");
+	
+});
 }
    
