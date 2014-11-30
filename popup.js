@@ -23,18 +23,10 @@ function click(e) {
   });
   //alert(urlList);
   chrome.runtime.sendMessage({greeting: "linksToBack", links: urlList}, function(r){});
-  chrome.tabs.create( {url: relaUrl}, test );      
+  chrome.tabs.create( {url: relaUrl}, function(){} );      
 }
 
-function  test(tab){
-    
-    alert("~~?");
-    chrome.tabs.executeScript(
-	tab.id,
-    {code:"alert('!!!');$('body').append('<p>lalala</p>');"},
-    function(){} 
-	);
-};
+
 
 function ON(e){
    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) { 
@@ -72,6 +64,7 @@ function OFF(e){
 
 var tstA=new Array("aaaa","bbbb");
 
+//this is a test, can be deleted in release.
 function testButton(e){
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) { 
        chrome.tabs.sendMessage(tabs[0].id, {greeting: "array", array: tstA}, function(response) {
@@ -88,10 +81,20 @@ $("#ON").click(ON);
 
 $("#OFF").click(OFF);
 
-
+//elements with test in their name can be deleted
 $("body").append("<button id='testB'>sendArray</button>");
 
 $("#testB").click(testButton);
+
+function SeeSelected(){
+    chrome.runtime.sendMessage({greeting: "OpenDirectly"}, 
+	     function(response){
+		    alert(response.links);
+		 });
+	chrome.tabs.create( {url: relaUrl}, function(){} ); 
+}
+
+$("#OpenDirectly").click(SeeSelected);
 
 });
 
