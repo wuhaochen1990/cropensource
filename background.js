@@ -32,12 +32,7 @@ chrome.storage.onChanged.addListener(function(changes, namespace){
 			userHelper = storageChange.newValue;
 		}
     }
-	// chrome.tabs.query({currentWindow: true}, function(tabs) {
-    // var message = {foo: bar};
-    // for (var i=0; i<tabs.length; ++i) {
-        // chrome.tabs.sendMessage(tabs[i].id, message);
-    // }
-// });
+
 	chrome.tabs.query({currentWindow: true}, function(tabs) {
 	    var message = {greeting: "colorChanged", color : userColor, helper: userHelper};
 		for(var i =0; i<tabs.length; ++i){ 
