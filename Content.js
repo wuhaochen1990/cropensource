@@ -7,7 +7,7 @@ var count = 0;
 var userColor;
 var userHelper;
 
-$("body").append("<div id='mytooltip'>Summary<input id ='displayBar' value='div id'><button id = 'add'>add</button><button id='delete'>delete</button><div id = 'close' align = right vertical-align = top>[X]</div><div id='select'></div></div>");
+$("body").append("<div id='mytooltip'><div id = 'close' align = right vertical-align = top>[X]</div><h1>Seletion Helper<h1><br>Summary   <input id ='displayBar' value='div id'>	<button id = 'add'>add</button>	<button id='delete'>delete</button><div id='select'></div></div>");
 
 $("#mytooltip").click(function(e){
    // $("#mytooltip").hide(); 	
@@ -47,6 +47,8 @@ chrome.runtime.onMessage.addListener(
 			add();
 		else if(request.greeting == "delUserSelect")
 			delet();
+		else if(request.greeting == "clearUp")
+			clear();
 	}
 );
 
@@ -174,17 +176,14 @@ function delet(e){
 $("#delete").click(delet);
 
 function clear(){
-    chrome.runtime.sendMessage({greeting:"clearup"},
-	function(response){
-	});
 	var fm = document.getElementById('select');
 	while(fm.firstChild){
 	    fm.removeChild(fm.firstChild);
 	}
 }	
 
-$("#mytooltip").append("<button id = 'clean'>clear up</button>");
-$("#clean").click(clear);
+//$("#mytooltip").append("<button id = 'clean'>clear up</button>");
+//$("#clean").click(clear);
 
 $("#close").click(function(e){$("#mytooltip").hide();});
 

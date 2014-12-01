@@ -112,7 +112,13 @@ chrome.runtime.onMessage.addListener(
 			chrome.contextMenus.update("result", {"enabled" : false} );
 		}
 		if(request.greeting == "clearup"){
-		    ContentJSONs=[];
+		    ContentJSONs=[];			
+			chrome.tabs.query({currentWindow: true}, function(tabs) {
+			var message = {greeting: "clearUp"};
+				for(var i =0; i<tabs.length; ++i){ 
+					chrome.tabs.sendMessage(tabs[i].id, message);
+				}	
+			});
 		}
 		if(request.greeting == "giveMeColor"){
 		    var response = {color: userColor};

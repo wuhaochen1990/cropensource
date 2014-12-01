@@ -25,3 +25,24 @@
 	padding-bottom: 15px;
 }
 
+#savediv
+{
+	padding:5px;
+	float:left;
+	margin: 15px;
+	margin-top:30px;
+	height:90px;
+}
+
+#save
+{
+	padding:5px;
+	margin: 15px;
+}
+
+#status
+{
+	font-size: 10px;
+	height:30px;
+}
+

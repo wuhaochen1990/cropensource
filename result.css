@@ -84,6 +84,8 @@ iframe:hover
 */
 .left_panel
 {
+	border: 3px solid #888888;
+	border-radius: 2px;
 	float: left;
 	width: 48%;
 	overflow:hidden;
@@ -93,11 +95,13 @@ iframe:hover
 	float: left;
 	width: 48%;
 	overflow:hidden;
+	border: 3px solid #888888;
+	border-radius: 2px;
 }
 .midle_panel
 {
 	float: left; 
-	width: 4%; 
+	width: 3%; 
 	text-align: center;
 }
 .btn

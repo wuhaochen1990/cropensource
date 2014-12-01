@@ -15,7 +15,7 @@ chrome.runtime.sendMessage({greeting:"giveMeLinks"},
 	    var JSONs =  response.jsons;
 		for(var index in JSONs){
 	    var url = response.jsons[index].url;
-		$("#urls").append("<input type='checkbox'  >"+url+"<br>");
+		$("#urls").append(url+"<br>");
 		}
 	}
 );
@@ -29,7 +29,18 @@ function OpenResult(){
 	chrome.tabs.create( {url: relaUrl}, function(){} ); 
 }
 
+function Clear(){
+    chrome.runtime.sendMessage({greeting:"clearup"},
+	function(response){
+	});
+	var fm = document.getElementById('urls');
+	while(fm.firstChild){
+	    fm.removeChild(fm.firstChild);
+	}
+}
+
 $("#OpenDirectly").click(OpenResult);
+$("#clear").click(Clear);
 
 });
 
