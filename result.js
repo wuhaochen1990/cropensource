@@ -34,7 +34,7 @@ window.onload = function(){
 		 //alert(url);
 		 dv.setAttribute("style", "overflow:hidden; width:"+width);
 		 ifr.setAttribute("src",url);
-		 ifr.setAttribute("style", "margin-top:" + (-top) + "; margin-left:" + (-left) + "; width : "+ clWidth+";height:"+(height+top)+";	");
+		 ifr.setAttribute("style", "margin-top:" + (-top) + "; margin-left:" + ((-left)+10) + "; width : "+ clWidth+";height:"+(height+top)+";	");
 		 
 		 var imgConteiner = document.createElement('div');
 		 imgConteiner.setAttribute("class", "screen");
@@ -111,7 +111,7 @@ function func_init(count){
 		 //alert(url);
 		 dv.setAttribute("style", "overflow:hidden; width:"+width);
 		 ifr.setAttribute("src",url);
-		 ifr.setAttribute("style", "margin-top:" + (-top) + "; margin-left:" + (-left) + "; width : "+ clWidth+";height:"+(height+top)+";	");
+		 ifr.setAttribute("style", "margin-top:" + (-top) + "; margin-left:" + ((-left)+10) + "; width : "+ clWidth+";height:"+(height+top)+";	");
 		 left_panel.appendChild(dv);
 		 dv.appendChild(ifr);
 		 
@@ -127,7 +127,7 @@ function func_init(count){
 		 //alert(url);
 		 dv.setAttribute("style", "overflow:hidden; width:"+width);
 		 ifr.setAttribute("src",url);
-		 ifr.setAttribute("style", "margin-top:" + (-top) + "; margin-left:" + (-left) + "; width : "+ clWidth+";height:"+(height+top)+";	");
+		 ifr.setAttribute("style", "margin-top:" + (-top) + "; margin-left:" + ((-left)+10) + "; width : "+ clWidth+";height:"+(height+top)+";	");
 		 right_panel.appendChild(dv);
 		 dv.appendChild(ifr);
 	}
@@ -144,7 +144,7 @@ function func_init(count){
 		 //alert(url);
 		 dv.setAttribute("style", "overflow:hidden; width:"+width);
 		 ifr.setAttribute("src",url);
-		 ifr.setAttribute("style", "margin-top:" + (-top) + "; margin-left:" + (-left) + "; width : "+ clWidth+";height:"+(height+top)+";	");
+		 ifr.setAttribute("style", "margin-top:" + (-top) + "; margin-left:" + ((-left)+10) + "; width : "+ clWidth+";height:"+(height+top)+";	");
 		 left_panel.appendChild(dv);
 		 dv.appendChild(ifr);
 	}
@@ -167,7 +167,7 @@ function func_left(){
 	 //alert(url);
 	 dv.setAttribute("style", "overflow:hidden; width:"+width);
 	 ifr.setAttribute("src",url);
-	 ifr.setAttribute("style", "margin-top:" + (-top) + "; margin-left:" + (-left) + "; width : "+ clWidth+";height:"+(height+top)+";	");
+	 ifr.setAttribute("style", "margin-top:" + (-top) + "; margin-left:" + ((-left)+10) + "; width : "+ clWidth+";height:"+(height+top)+";	");
 	left_panel.appendChild(dv);
 	 dv.appendChild(ifr);
 }	
@@ -189,7 +189,7 @@ function func_right(){
 	 //alert(url);
 	 dv.setAttribute("style", "overflow:hidden; width:"+width);
 	 ifr.setAttribute("src",url);
-	 ifr.setAttribute("style", "margin-top:" + (-top) + "; margin-left:" + (-left) + "; width : "+ clWidth+";height:"+(height+top)+";	");
+	 ifr.setAttribute("style", "margin-top:" + (-top) + "; margin-left:" + ((-left)+10) + "; width : "+ clWidth+";height:"+(height+top)+";	");
 	right_panel.appendChild(dv);
 	 dv.appendChild(ifr);
 }
