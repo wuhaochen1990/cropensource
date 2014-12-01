@@ -147,22 +147,6 @@ function func_init(count){
 		 ifr.setAttribute("style", "margin-top:" + (-top) + "; margin-left:" + (-left) + "; width : "+ clWidth+";height:"+(height+top)+";	");
 		 left_panel.appendChild(dv);
 		 dv.appendChild(ifr);
-		 
-		 var dv = document.createElement('div');
-		 //dv.setAttribute("class", "dv");
-		 var ifr=document.createElement('iframe');		 
-		 var url = jsons[0].url;
-		 var top = jsons[0].attr.top;
-		 var left = jsons[0].attr.left;
-		 var height = jsons[0].attr.height;
-		 var width = jsons[0].attr.width;
-		 var clWidth = jsons[0].attr.clWidth;
-		 //alert(url);
-		 dv.setAttribute("style", "overflow:hidden; width:"+width);
-		 ifr.setAttribute("src",url);
-		 ifr.setAttribute("style", "margin-top:" + (-top) + "; margin-left:" + (-left) + "; width : "+ clWidth+";height:"+(height+top)+";	");
-		 right_panel.appendChild(dv);
-		 dv.appendChild(ifr);
 	}
 }
 
