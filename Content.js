@@ -117,7 +117,7 @@ function add(){
 
 $("#add").click(add);
 
-function delet(e){
+function delete(e){
     var r = document.getElementsByName("r");
 	var fm = document.getElementById('select');
 	var temp = new Array();
@@ -136,7 +136,7 @@ function delet(e){
 	
 }
 
-$("#delete").click(delet);
+$("#delete").click(delete);
 
 function clear(){
     chrome.runtime.sendMessage({greeting:"clearup"},
