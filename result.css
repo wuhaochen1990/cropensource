@@ -15,13 +15,33 @@ iframe:hover
 	border: 2px solid #336699;
 }
 
-.imgConteinerClass
+.noInfo
 {
-	float: left;
-	border: 2px solid #cccccc;
-	margin: 5px;
+    width:600px; 
+    margin:0 auto;
+    position:fixed;
+    left:54%;
+    top:20%;
+    margin-left:-400px; 
+	font-size: 20px;
+	text-align: center;
+    background: white;	
+	z-index: 9999;
+	border: 10px solid #888888;
+	border-radius: 5px;
+	display: none;	
+	padding: 10px;
+	background-color: #F0FFF0;
 }
-.imgConteinerClass:hover
+
+.screen
+{
+	padding: 10px;
+	display: block;
+	float:left;
+}
+
+.screen:hover
 {
 	border: 2px solid #336699;
 }
@@ -66,20 +86,21 @@ iframe:hover
 {
 	float: left;
 	width: 48%;
+	overflow:hidden;
 }
 .right_panel
 {
 	float: left;
 	width: 48%;
+	overflow:hidden;
 }
 .midle_panel
 {
 	float: left; 
 	width: 4%; 
 	text-align: center;
-	display:none;
 }
-.btnLeft, .btnRight, .btnTwo, .btnSHowHide, .btnChange, .btnHelp
+.btn
 {
 	background-color: #F0FFF0;
 	padding: 5px; 
@@ -87,7 +108,17 @@ iframe:hover
 	text-align: center;
 }
 
-.btnLeft:hover, .btnRight:hover, .btnTwo:hover, .btnSHowHide:hover, .btnChange:hover, .btnHelp:hover
+.btn2
+{
+	background-color: #336699;
+	color: white;
+	padding: 5px; 
+	margin: 5px;
+	text-align: center;
+	width: 100px;
+}
+
+.btn:hover, .helpClose:hover
 {
 	background-color: #336699;
 	color: white;
@@ -103,20 +134,14 @@ iframe:hover
 	text-align: center;
 	width: 100px;
 }
-.helpClose:hover
-{
-	background-color: #336699;
-	color: white;
-	cursor: pointer;
-}
-/**/
+
 .help
 {
-    width:800px; 
+    width:600px; 
     margin:0 auto;
     position:fixed;
-    left:50%;
-    top:2%;
+    left:54%;
+    top:20%;
     margin-left:-400px; 
 
     background: white;	
@@ -127,41 +152,17 @@ iframe:hover
 	padding: 10px;
 	background-color: #F0FFF0;
 }
-.help_menu
+.help_title
 {
-	float: left;
 	background-color: #cccccc;
 	padding: 5px; 
 	margin: 5px;
 	text-align: center;	
 }
-.help_menu:hover
-{
-	background-color: #336699;
-	color: white;
-	cursor: pointer;
-}
-.help_menu_active
-{
-	float: left;
-	background-color: #336699;
-	padding: 5px; 
-	margin: 5px;
-	text-align: center;	
-	color: white;
-	cursor: pointer;	
-}
-.menu_view
+
+.help_content
 {
 	border: 1px solid #cccccc;
 	border-radius: 2px;
 	padding: 10px;
-	display: none;
-}
-
-.screen
-{
-	padding: 10px;
-	display: block;
-	float:left;
 }

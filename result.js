@@ -9,8 +9,16 @@ window.onload = function(){
 		 
 		 jsons = response.jsons;
 		 var size = jsons.length;
-		 //alert("get the message: "+ response.links);
-		 //alert(size);
+		if(size == 0)
+		{
+			document.getElementById('noInfo').style.display = 'block';
+			document.getElementById('noInfo').innerHTML = 'Nothing to Compare<br>Please Select Some Content on Any Website';
+			document.getElementById('midlePanel').style.display = 'none';
+			return;
+		}
+		else{
+			document.getElementById('midlePanel').style.display = 'block';
+		}
 		
 		for(var index in jsons){	
 		 var dv = document.createElement('div');
@@ -28,22 +36,13 @@ window.onload = function(){
 		 ifr.setAttribute("src",url);
 		 ifr.setAttribute("style", "margin-top:" + (-top) + "; margin-left:" + (-left) + "; width : "+ clWidth+";height:"+(height+top)+";	");
 		 
-		 //alert(top+" "+left); 
-		 //document.body.appendChild(dv);
-		 
-		 
-		 
 		 var imgConteiner = document.createElement('div');
 		 imgConteiner.setAttribute("class", "screen");
-		 canvas.appendChild(imgConteiner);
-		 
-		 //var label = document.createElement('div');
-		 //label.className = 'labelClass'; 
-		 //label.style.width = newWidth; 
-		 //label.innerHTML = index;
-		 //imgConteiner.appendChild(label);		 
+		 canvas.appendChild(imgConteiner);	 
 		 
 		 var img = document.createElement('img');
+		 img.id = index + "P";
+		 img.setAttribute("name", "screenshot"); 
 		 img.onload = imgConteiner.appendChild(img);
 		 img.src = jsons[index].screen;
 		 var newWidth = 200;
@@ -65,22 +64,20 @@ window.onload = function(){
 		btnLeft.id = index + "L"; 
 		btnLeft.className = 'bntLeftClass'; 
 		btnLeft.setAttribute("name", "btnLeft"); 
-		//var panel = 'left_panel';
-		//btnLeft.onclick = func_insertContent('left_panel');
 		btnLeft.innerHTML = 'Left';
 		
 		var btnRight = document.createElement('div');
 		btnRight.id = index + "R";
 		btnRight.className = 'bntRightClass'; 
 		btnRight.setAttribute("name", "btnRight");
-		//var panel = 'right_panel';
-		//btnRight.onclick = function(tabId, tabUrl, panel) { return function() {func_insertContent(tabId, tabUrl, panel); }; }(i, aUrls[i].url, panel);
 		btnRight.innerHTML = 'Right';
 		
 		btnConteiner.appendChild(btnLeft);
 		btnConteiner.appendChild(btnRight);
 		imgConteiner.appendChild(btnConteiner);
-	    };
+	    }
+		
+		func_init(size);
 		
 		var lefts = document.getElementsByName('btnLeft');
 		for(var i=0; i<lefts.length; i++){
@@ -92,9 +89,82 @@ window.onload = function(){
 			rights[i].addEventListener('click',func_right);
 		}
 		
+		var sss = document.getElementsByName('screenshot');
+		for(var i=0; i<sss.length; i++){
+			sss[i].addEventListener('click',func_left);
+		}
+		
 	});
 }
 
+function func_init(count){
+	if(count > 1){	
+		var dv = document.createElement('div');
+		 //dv.setAttribute("class", "dv");
+		 var ifr=document.createElement('iframe');		 
+		 var url = jsons[0].url;
+		 var top = jsons[0].attr.top;
+		 var left = jsons[0].attr.left;
+		 var height = jsons[0].attr.height;
+		 var width = jsons[0].attr.width;
+		 var clWidth = jsons[0].attr.clWidth;
+		 //alert(url);
+		 dv.setAttribute("style", "overflow:hidden; width:"+width);
+		 ifr.setAttribute("src",url);
+		 ifr.setAttribute("style", "margin-top:" + (-top) + "; margin-left:" + (-left) + "; width : "+ clWidth+";height:"+(height+top)+";	");
+		 left_panel.appendChild(dv);
+		 dv.appendChild(ifr);
+		 
+		 var dv = document.createElement('div');
+		 //dv.setAttribute("class", "dv");
+		 var ifr=document.createElement('iframe');		 
+		 var url = jsons[1].url;
+		 var top = jsons[1].attr.top;
+		 var left = jsons[1].attr.left;
+		 var height = jsons[1].attr.height;
+		 var width = jsons[1].attr.width;
+		 var clWidth = jsons[1].attr.clWidth;
+		 //alert(url);
+		 dv.setAttribute("style", "overflow:hidden; width:"+width);
+		 ifr.setAttribute("src",url);
+		 ifr.setAttribute("style", "margin-top:" + (-top) + "; margin-left:" + (-left) + "; width : "+ clWidth+";height:"+(height+top)+";	");
+		 right_panel.appendChild(dv);
+		 dv.appendChild(ifr);
+	}
+	else{
+		var dv = document.createElement('div');
+		 //dv.setAttribute("class", "dv");
+		 var ifr=document.createElement('iframe');		 
+		 var url = jsons[0].url;
+		 var top = jsons[0].attr.top;
+		 var left = jsons[0].attr.left;
+		 var height = jsons[0].attr.height;
+		 var width = jsons[0].attr.width;
+		 var clWidth = jsons[0].attr.clWidth;
+		 //alert(url);
+		 dv.setAttribute("style", "overflow:hidden; width:"+width);
+		 ifr.setAttribute("src",url);
+		 ifr.setAttribute("style", "margin-top:" + (-top) + "; margin-left:" + (-left) + "; width : "+ clWidth+";height:"+(height+top)+";	");
+		 left_panel.appendChild(dv);
+		 dv.appendChild(ifr);
+		 
+		 var dv = document.createElement('div');
+		 //dv.setAttribute("class", "dv");
+		 var ifr=document.createElement('iframe');		 
+		 var url = jsons[0].url;
+		 var top = jsons[0].attr.top;
+		 var left = jsons[0].attr.left;
+		 var height = jsons[0].attr.height;
+		 var width = jsons[0].attr.width;
+		 var clWidth = jsons[0].attr.clWidth;
+		 //alert(url);
+		 dv.setAttribute("style", "overflow:hidden; width:"+width);
+		 ifr.setAttribute("src",url);
+		 ifr.setAttribute("style", "margin-top:" + (-top) + "; margin-left:" + (-left) + "; width : "+ clWidth+";height:"+(height+top)+";	");
+		 right_panel.appendChild(dv);
+		 dv.appendChild(ifr);
+	}
+}
 
 function func_left(){
 	while(left_panel.firstChild){
@@ -138,5 +208,49 @@ function func_right(){
 	 ifr.setAttribute("style", "margin-top:" + (-top) + "; margin-left:" + (-left) + "; width : "+ clWidth+";height:"+(height+top)+";	");
 	right_panel.appendChild(dv);
 	 dv.appendChild(ifr);
+}
+
+document.getElementById('btnLeft').addEventListener('click',func_toLeft,false);
+document.getElementById('btnRight').addEventListener('click',func_toRight,false);
+document.getElementById('btnTwo').addEventListener('click',func_two,false);
+document.getElementById('btnHelp').addEventListener('click',func_help,false);
+document.getElementById('helpClose').addEventListener('click',func_helpClose,false);
+document.getElementById('btnSHowHide').addEventListener('click',func_Dock,false);
+
+function func_toLeft()
+{
+	//document.getElementById('leftPanel').style.display = 'none';
+	//document.getElementById('rightPanel').style.display = 'block';
+	document.getElementById('rightPanel').style.width = '56%';
+	document.getElementById('leftPanel').style.width = '40%';
+}
+function func_toRight()
+{
+	//document.getElementById('leftPanel').style.display = 'block';
+	//document.getElementById('rightPanel').style.display = 'none';
+	document.getElementById('leftPanel').style.width = '56%';
+	document.getElementById('rightPanel').style.width = '40%';
+}
+function func_two()
+{
+	//document.getElementById('leftPanel').style.display = 'block';
+	//document.getElementById('rightPanel').style.display = 'block';
+	document.getElementById('leftPanel').style.width = '48%';
+	document.getElementById('rightPanel').style.width = '48%';
+}
+function func_help()
+{
+	document.getElementById('help').style.display = 'block';
+}
+function func_helpClose()
+{
+	document.getElementById('help').style.display = 'none';
+}
+function func_Dock()
+{
+	if(document.getElementById('canvas').style.display == 'none')
+		document.getElementById('canvas').style.display = 'block';
+	else
+		document.getElementById('canvas').style.display = 'none';
 }
    

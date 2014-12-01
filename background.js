@@ -2,15 +2,17 @@ var cache = new Array();
 var cacheFromTabs = new Array();
 var ContentJSONs = new Array();
 var userColor;
+var userHelper;
 
 //contextMenu
 creatMenu();
 
 chrome.storage.sync.get({
     favoriteColor: 'red',
-    likesColor: true
+    enableHelper: 'yes'
   }, function(items) {
     userColor = items.favoriteColor;
+	userHelper = items.enableHelper;
 });
   
 chrome.storage.onChanged.addListener(function(changes, namespace){
@@ -25,6 +27,10 @@ chrome.storage.onChanged.addListener(function(changes, namespace){
                       storageChange.newValue);
 			userColor = storageChange.newValue;
 		}
+		else if(key == "enableHelper"){
+		    var storageChange = changes[key];
+			userHelper = storageChange.newValue;
+		}
     }
 	// chrome.tabs.query({currentWindow: true}, function(tabs) {
     // var message = {foo: bar};
@@ -33,7 +39,7 @@ chrome.storage.onChanged.addListener(function(changes, namespace){
     // }
 // });
 	chrome.tabs.query({currentWindow: true}, function(tabs) {
-	    var message = {greeting: "colorChanged", color : userColor};
+	    var message = {greeting: "colorChanged", color : userColor, helper: userHelper};
 		for(var i =0; i<tabs.length; ++i){ 
     	    chrome.tabs.sendMessage(tabs[i].id, message);
 		}	
@@ -110,6 +116,10 @@ chrome.runtime.onMessage.addListener(
 		}
 		if(request.greeting == "giveMeColor"){
 		    var response = {color: userColor};
+			sendResponse(response);
+		}
+		if(request.greeting == "giveMeHelper"){
+		    var response = {helper: userHelper};
 			sendResponse(response);
 		}
 })

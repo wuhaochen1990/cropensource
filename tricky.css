@@ -1,0 +1,27 @@
+.option
+{
+    width:600px; 
+    margin:0 auto;
+    position:fixed;
+    left:54%;
+    top:20%;
+    margin-left:-400px; 
+	font-size: 20px;
+	text-align: center;
+    background: white;	
+	z-index: 9999;
+	border: 10px solid #888888;
+	border-radius: 5px;	
+	padding: 10px;
+	background-color: #F0FFF0;
+}
+
+.section
+{
+	border: 1px solid #cccccc;
+	padding:5px;
+	float:left;
+	margin: 15px;
+	padding-bottom: 15px;
+}
+

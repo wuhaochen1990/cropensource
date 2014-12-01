@@ -5,6 +5,7 @@ var ContentID = null;
 var lastTar = null;
 var count = 0;
 var userColor;
+var userHelper;
 
 $("body").append("<div id='mytooltip'>Summary<input id ='displayBar' value='div id'><button id = 'add'>add</button><button id='delete'>delete</button><div id = 'close' align = right vertical-align = top>[X]</div><div id='select'></div></div>");
 
@@ -18,14 +19,34 @@ chrome.runtime.sendMessage({greeting: "giveMeColor"},
     }
 );
 
+chrome.runtime.sendMessage({greeting: "giveMeHelper"},
+    function(response){
+        userHelper = response.helper;
+		if(userHelper == 'no'){
+			document.getElementById("mytooltip").style.display = 'none';
+		}
+		else{
+			document.getElementById("mytooltip").style.display = 'block';
+		}
+    }
+);
+
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse){
 	    if(request.greeting == "colorChanged")
 		{
 		   userColor = request.color;
-		   console.log("userColor = "+ userColor);
-		   
+		   userHelper = request.helper;
+		   console.log("userColor = "+ userColor);	
+			if(userHelper == 'no')
+				document.getElementById("mytooltip").style.display = 'none';
+			else
+				document.getElementById("mytooltip").style.display = 'block';
 		}
+		else if(request.greeting == "addUserSelect")
+			add();
+		else if(request.greeting == "delUserSelect")
+			delet();
 	}
 );
 
@@ -77,12 +98,7 @@ $("body").find("div").click(
     //alert("hello end");
 });	*/
 
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-    if(request.greeting == "addUserSelect")
-		add();
-	else if(request.greeting == "delUserSelect")
-		delet();
-});  
+ 
 
 function add(){
         //e.stopPropagation();        

@@ -7,6 +7,8 @@
 </style>
 </head>
 <body>
+	<div id="noInfo" class="noInfo"></div>
+
 	<div class="canvas" id="canvas"></div>
 
 	<div>
@@ -17,14 +19,12 @@
 
 				</div>
 				
-				<div class="midle_panel" id="div_midle_panel">
-					<div class="btnLeft" id="btnLeft">&larr;</div>			
-					<div class="btnRight" id="btnRight">&rarr;</div>
-					<div class="btnTwo" id="btnTwo">&harr;</div>
-					<div class="btnChange" id="btnChange">&hArr;</div>
-					<div class="btnHelp" id="btnHelp">?</div>
-					
-					<div class="btnSHowHide" id="btnSHowHide">X</div>
+				<div class="midle_panel" id="midlePanel">
+					<div class="btn" id="btnLeft">&larr;</div>			
+					<div class="btn" id="btnRight">&rarr;</div>
+					<div class="btn" id="btnTwo">&harr;</div>
+					<div class="btn" id="btnHelp">?</div>					
+					<div class="btn" id="btnSHowHide">Dock</div>
 				</div>
 				
 				<div class="right_panel" id="rightPanel">
@@ -39,47 +39,34 @@
 		<table border="0" width="100%" cellpadding="0" cellspacing="0">
 			<tr>
 				<td>
-					<div class="help_menu" id="menu_1">Instruction</div>
-					<div class="help_menu" id="menu_2">Hint</div>
+					<div id="helpTitle" class="help_title"><b>Instruction</b></div>
 				</td>
 			</tr>	
 		</table>
 		
-		<div id="menu_1_view" class="menu_view">
-			<table border="0" width="100%" cellpadding="0" cellspacing="0">
+		<div id="helpContent" class="help_content">
+			<table border="0" width="100%" cellpadding="0" cellspacing="0">	
 				<tr>
-					<td><div><input type="text" class="inputText" value="500"></div></td>
-					<td>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</td>
-				<tr>		
-				<tr>
-					<td><div class="btnLeft">Left</div></td>
-					<td>btnLeft</td>
+					<td><div class="btn2">&larr;</div></td>
+					<td>Let the right page occupy more space of the screen</td>
 				<tr>	
 				<tr>
-					<td><div class="btnRight">&rarr;</div></td>
-					<td>btnRight</td>
+					<td><div class="btn2">&rarr;</div></td>
+					<td>Let the left page occupy more space of the screen</td>
 				<tr>
 				<tr>
-					<td><div class="btnTwo">&harr;</div></td>
-					<td>btnTwo</td>
+					<td><div class="btn2">&harr;</div></td>
+					<td>Show two pages equally</td>
 				<tr>	
 				<tr>
-					<td><div class="btnChange">&hArr;</div></td>
-					<td>btnChange</td>
+					<td><div class="btn2">?</div></td>
+					<td>Help</td>
+				<tr>
+				<tr>
+					<td><div class="btn2">Dock</div></td>
+					<td>Hide/Show the dock</td>
 				<tr>
 			</table>
-		</div>
-		<div id="menu_2_view" class="menu_view">
-			<table border="0" width="100%" cellpadding="0" cellspacing="0">
-				<tr>
-					<td><div class="btnTwo">&harr;</div></td>
-					<td>btnTwo</td>
-				<tr>	
-				<tr>
-					<td><div class="btnChange">&hArr;</div></td>
-					<td>btnChange</td>
-				<tr>			
-			</table>		
 		</div>
 
 		<div class="helpClose" id="helpClose">Close</div>
