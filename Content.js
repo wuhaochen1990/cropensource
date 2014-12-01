@@ -7,7 +7,7 @@ var count = 0;
 var userColor;
 var userHelper;
 
-$("body").append("<div id='mytooltip'><div id = 'close' align = right vertical-align = top>[X]</div><h1>Seletion Helper<h1><br>Summary   <input id ='displayBar' value='div id'>	<button id = 'add'>add</button>	<button id='delete'>delete</button><div id='select'></div></div>");
+$("body").append("<div id='mytooltip'><div id = 'close' align = right vertical-align = top>[X]</div><h1>Seletion Helper<h1><br>ID of Selected div:  <input id ='displayBar' value='div id'>	<button id = 'add'>add</button>	<button id='delete'>delete</button><div id='select'></div></div>");
 
 $("#mytooltip").click(function(e){
    // $("#mytooltip").hide(); 	
@@ -46,7 +46,7 @@ chrome.runtime.onMessage.addListener(
 		else if(request.greeting == "addUserSelect")
 			add();
 		else if(request.greeting == "delUserSelect")
-			delet();
+			delet2();
 		else if(request.greeting == "clearUp")
 			clear();
 	}
@@ -169,11 +169,24 @@ function delet(e){
 	for(var j in del){
 		fm.removeChild(del[j]);
 	}
+	$(lastTar).css({"background-color":divColor});
 	chrome.runtime.sendMessage({greeting : "deletePage", pos : temp},function(response){alert(response.lala);});
-	
 }
 
 $("#delete").click(delet);
+
+function delet2(e){
+    var top = getTop(lastTar);
+	var left = getLeft(lastTar);
+	var value = top + "," + left;
+	var temp = new Array();
+	temp.push(value);
+	var fm = document.getElementById('select');
+	var c = document.getElementById(value);
+	fm.removeChild(c);
+	$(lastTar).css({"background-color":divColor});
+	chrome.runtime.sendMessage({greeting : "deletePage", pos : temp},function(response){alert(response.lala);});
+}
 
 function clear(){
 	var fm = document.getElementById('select');

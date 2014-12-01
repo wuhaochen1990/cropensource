@@ -43,10 +43,7 @@ chrome.storage.onChanged.addListener(function(changes, namespace){
 		for(var i =0; i<tabs.length; ++i){ 
     	    chrome.tabs.sendMessage(tabs[i].id, message);
 		}	
-    });
-    	
-	
-	
+    });	
 });
   
 chrome.runtime.onMessage.addListener(
@@ -67,6 +64,10 @@ chrome.runtime.onMessage.addListener(
 					{					
 					var node = {url:url, screen:image, attr:request};
 				    ContentJSONs.push(node);
+					
+					var selectedCount = ContentJSONs.length;
+					chrome.contextMenus.update("delete", {"enabled" : true} );
+					chrome.contextMenus.update("result", {"enabled" : true} );								
 					});
 				   
 				   
@@ -75,6 +76,8 @@ chrome.runtime.onMessage.addListener(
 				});
 			var response = { links : cacheFromTabs};
 			sendResponse(response);
+			
+			
 		}
         if(request.greeting == "cacheFromTabs"){
 		     var response = { links : cacheFromTabs};
@@ -93,6 +96,10 @@ chrome.runtime.onMessage.addListener(
 						if(ContentJSONs[index].url == url){
 							if(ps[0] == ContentJSONs[index].attr.top && ps[1] == ContentJSONs[index].attr.left){
 								ContentJSONs.splice(index,1);
+								if(selectedCount < 1){
+									chrome.contextMenus.update("delete", {"enabled" : false} );
+									chrome.contextMenus.update("result", {"enabled" : false} );
+								}
 							}
 						}
 					}						
@@ -102,15 +109,7 @@ chrome.runtime.onMessage.addListener(
 			});	  	    
 		}
 		
-		var selectedCount = ContentJSONs.length;
-		if(selectedCount > 0){
-			chrome.contextMenus.update("delete", {"enabled" : true} );
-			chrome.contextMenus.update("result", {"enabled" : true} );
-		}
-		else{
-			chrome.contextMenus.update("delete", {"enabled" : false} );
-			chrome.contextMenus.update("result", {"enabled" : false} );
-		}
+		
 		if(request.greeting == "clearup"){
 		    ContentJSONs=[];			
 			chrome.tabs.query({currentWindow: true}, function(tabs) {
@@ -162,7 +161,7 @@ function creatMenu()
 	chrome.contextMenus.create(
 	{
 		"id" : "result",
-		"title" : "Result",
+		"title" : "Merge",
 		"contexts" : ["all"],
 		"parentId" : "main",	
 		"enabled" : false		
