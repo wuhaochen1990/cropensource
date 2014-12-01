@@ -87,10 +87,10 @@ $("body").append("<button id='testB'>sendArray</button>");
 $("#testB").click(testButton);
 
 function SeeSelected(){
-    chrome.runtime.sendMessage({greeting: "OpenDirectly"}, 
-	     function(response){
-		    alert(response.links);
-		 });
+    //chrome.runtime.sendMessage({greeting: "OpenDirectly"}, 
+	//     function(response){
+	//	    alert(response.links);
+	//	 });
 	chrome.tabs.create( {url: relaUrl}, function(){} ); 
 }
 

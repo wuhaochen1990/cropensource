@@ -21,6 +21,7 @@ window.onload = function(){
 		// //alert(url);
 		 dv.setAttribute("style", "overflow:hidden; width:"+width);
 		 ifr.setAttribute("src",url);
+		 ifr.setAttribute("scrolling","no");
 		 ifr.setAttribute("style", "margin-top:" + (-top) + "; margin-left:" + (-left) + "; width : "+ clWidth+";height:"+(height+top)+";	");
 		 
 		 alert(top+" "+left); 
