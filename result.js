@@ -205,15 +205,15 @@ function func_toLeft()
 {
 	//document.getElementById('leftPanel').style.display = 'none';
 	//document.getElementById('rightPanel').style.display = 'block';
-	document.getElementById('rightPanel').style.width = '56%';
-	document.getElementById('leftPanel').style.width = '40%';
+	document.getElementById('rightPanel').style.width = '58%';
+	document.getElementById('leftPanel').style.width = '38%';
 }
 function func_toRight()
 {
 	//document.getElementById('leftPanel').style.display = 'block';
 	//document.getElementById('rightPanel').style.display = 'none';
-	document.getElementById('leftPanel').style.width = '56%';
-	document.getElementById('rightPanel').style.width = '40%';
+	document.getElementById('leftPanel').style.width = '58%';
+	document.getElementById('rightPanel').style.width = '38%';
 }
 function func_two()
 {
