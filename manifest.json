@@ -4,7 +4,7 @@
   "description": "Merge websites",
   "version": "1.0",
   "permissions": [
-    "tabs", "contextMenus", "http://*/*", "https://*/*", "file:///*"
+    "tabs", "contextMenus", "storage", "http://*/*", "https://*/*", "file:///*", "<all_urls>"
   ],
   "icons":{ "128" : "icon.png"},
   "browser_action": {

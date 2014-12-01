@@ -1,18 +1,90 @@
 <html>
-<title>Merge Result</title>
+<title>Page Merge</title>
 <head>
+<link rel="stylesheet" type="text/css" href="result.css">
 <script src="jquery-1.11.1.min.js"></script> 
-<script src="result.js"></script>
-<!-- <script src="Content.js"></script> -->
 <style>
-.dv
-{ float:left;
-  max-width: 45%;
-}
 </style>
 </head>
-<body id="ThyResult">
-<div><p align="center">This is Nice</p></div>
+<body>
+	<div class="canvas" id="canvas"></div>
 
+	<div>
+	<table border="0" width="100%">	
+		<tr>
+			<td>
+				<div class="left_panel" id="leftPanel">
+
+				</div>
+				
+				<div class="midle_panel" id="div_midle_panel">
+					<div class="btnLeft" id="btnLeft">&larr;</div>			
+					<div class="btnRight" id="btnRight">&rarr;</div>
+					<div class="btnTwo" id="btnTwo">&harr;</div>
+					<div class="btnChange" id="btnChange">&hArr;</div>
+					<div class="btnHelp" id="btnHelp">?</div>
+					
+					<div class="btnSHowHide" id="btnSHowHide">X</div>
+				</div>
+				
+				<div class="right_panel" id="rightPanel">
+
+				</div>
+			</td>
+		<tr>
+	</table>	
+	</div>	
+	
+	<div id="help" class="help">
+		<table border="0" width="100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+					<div class="help_menu" id="menu_1">Instruction</div>
+					<div class="help_menu" id="menu_2">Hint</div>
+				</td>
+			</tr>	
+		</table>
+		
+		<div id="menu_1_view" class="menu_view">
+			<table border="0" width="100%" cellpadding="0" cellspacing="0">
+				<tr>
+					<td><div><input type="text" class="inputText" value="500"></div></td>
+					<td>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</td>
+				<tr>		
+				<tr>
+					<td><div class="btnLeft">Left</div></td>
+					<td>btnLeft</td>
+				<tr>	
+				<tr>
+					<td><div class="btnRight">&rarr;</div></td>
+					<td>btnRight</td>
+				<tr>
+				<tr>
+					<td><div class="btnTwo">&harr;</div></td>
+					<td>btnTwo</td>
+				<tr>	
+				<tr>
+					<td><div class="btnChange">&hArr;</div></td>
+					<td>btnChange</td>
+				<tr>
+			</table>
+		</div>
+		<div id="menu_2_view" class="menu_view">
+			<table border="0" width="100%" cellpadding="0" cellspacing="0">
+				<tr>
+					<td><div class="btnTwo">&harr;</div></td>
+					<td>btnTwo</td>
+				<tr>	
+				<tr>
+					<td><div class="btnChange">&hArr;</div></td>
+					<td>btnChange</td>
+				<tr>			
+			</table>		
+		</div>
+
+		<div class="helpClose" id="helpClose">Close</div>
+	</div>	
+	
+	<script type="text/javascript" src="result.js"></script>
 </body>
 </html>

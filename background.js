@@ -18,8 +18,16 @@ chrome.runtime.onMessage.addListener(
 		    chrome.tabs.query({active:true},
 			    function(tabs){
 				   url = tabs[0].url.slice();
-				   var node = {url:url, attr:request};
-				   ContentJSONs.push(node);
+				   
+				   chrome.tabs.captureVisibleTab(null, {}, function (image) 
+					{					
+					var node = {url:url, screen:image, attr:request};
+				    ContentJSONs.push(node);
+					});
+				   
+				   
+				   //var node = {url:url, attr:request};
+				   //ContentJSONs.push(node);
 				});
 			var response = { links : cacheFromTabs};
 			sendResponse(response);
@@ -49,6 +57,7 @@ chrome.runtime.onMessage.addListener(
 				sendResponse(response);
 			});	  	    
 		}
+		
 		var selectedCount = ContentJSONs.length;
 		if(selectedCount > 0){
 			chrome.contextMenus.update("delete", {"enabled" : true} );
@@ -113,6 +122,6 @@ chrome.contextMenus.onClicked.addListener(function(info, tab){
 	else if(info.menuItemId == 'result'){
 		var relaUrl=chrome.extension.getURL("result.html");
 		chrome.tabs.create( {url: relaUrl}, function(){} );
-		cache = ContentJSONs;		
+		//cache = ContentJSONs;		
 	}                                   
 })

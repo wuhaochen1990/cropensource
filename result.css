@@ -1,0 +1,167 @@
+body
+{
+	background: #c5d5dd;
+	margin: 0px;
+	padding: 0px;
+}
+iframe
+{
+	border: 2px solid #cccccc;
+	margin: 0px;
+	padding: 0px;	
+}
+iframe:hover
+{
+	border: 2px solid #336699;
+}
+
+.imgConteinerClass
+{
+	float: left;
+	border: 2px solid #cccccc;
+	margin: 5px;
+}
+.imgConteinerClass:hover
+{
+	border: 2px solid #336699;
+}
+
+.labelClass
+{
+	color: #336699;
+	text-align: center;
+}
+.bntLeftClass
+{
+	float: left;
+	background-color: #F0FFF0;
+	color: #888888;
+	padding : 5px;
+	margin: 5px;
+	text-align: center;
+	width: 75px;
+}
+
+.bntRightClass
+{
+	float: right;
+	background-color: #F0FFF0;
+	color: #888888;
+	padding : 5px;
+	margin: 5px;
+	text-align: center;
+	width: 75px;
+}
+
+.bntLeftClass:hover , .bntRightClass:hover
+{
+	background-color: #336699;
+	color: white;
+	cursor: pointer;
+}
+
+/*
+*/
+.left_panel
+{
+	float: left;
+	width: 48%;
+}
+.right_panel
+{
+	float: left;
+	width: 48%;
+}
+.midle_panel
+{
+	float: left; 
+	width: 4%; 
+	text-align: center;
+	display:none;
+}
+.btnLeft, .btnRight, .btnTwo, .btnSHowHide, .btnChange, .btnHelp
+{
+	background-color: #F0FFF0;
+	padding: 5px; 
+	margin: 5px;
+	text-align: center;
+}
+
+.btnLeft:hover, .btnRight:hover, .btnTwo:hover, .btnSHowHide:hover, .btnChange:hover, .btnHelp:hover
+{
+	background-color: #336699;
+	color: white;
+	cursor: pointer;
+}
+
+.helpClose
+{
+	float: right; 
+	background-color: #cccccc; 
+	padding: 5px; 
+	margin: 5px;
+	text-align: center;
+	width: 100px;
+}
+.helpClose:hover
+{
+	background-color: #336699;
+	color: white;
+	cursor: pointer;
+}
+/**/
+.help
+{
+    width:800px; 
+    margin:0 auto;
+    position:fixed;
+    left:50%;
+    top:2%;
+    margin-left:-400px; 
+
+    background: white;	
+	z-index: 9999;
+	border: 10px solid #888888;
+	border-radius: 5px;
+	display: none;	
+	padding: 10px;
+	background-color: #F0FFF0;
+}
+.help_menu
+{
+	float: left;
+	background-color: #cccccc;
+	padding: 5px; 
+	margin: 5px;
+	text-align: center;	
+}
+.help_menu:hover
+{
+	background-color: #336699;
+	color: white;
+	cursor: pointer;
+}
+.help_menu_active
+{
+	float: left;
+	background-color: #336699;
+	padding: 5px; 
+	margin: 5px;
+	text-align: center;	
+	color: white;
+	cursor: pointer;	
+}
+.menu_view
+{
+	border: 1px solid #cccccc;
+	border-radius: 2px;
+	padding: 10px;
+	display: none;
+}
+
+.screen
+{
+	padding: 10px;
+	display: block;
+	float:left;
+}

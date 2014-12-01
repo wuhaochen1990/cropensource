@@ -107,7 +107,7 @@ function add(){
 				rec.value = top + "," + left;
 				fm.appendChild(dv);
 				dv.appendChild(rec);
-				dv.innerHTML += (++count) +". div is added. [ID: " + ContentID + " Position: (" + top + "," + left + ")]<br>";
+				dv.innerHTML += (++count) +". div [ID: " + ContentID + " Position: (" + top + "," + left + ")]<br>";
 			}
 		//}
 		//else { $("#displayBar").val("pls select a content");}
@@ -117,7 +117,7 @@ function add(){
 
 $("#add").click(add);
 
-function delete(e){
+function delet(e){
     var r = document.getElementsByName("r");
 	var fm = document.getElementById('select');
 	var temp = new Array();
@@ -136,7 +136,7 @@ function delete(e){
 	
 }
 
-$("#delete").click(delete);
+$("#delete").click(delet);
 
 function clear(){
     chrome.runtime.sendMessage({greeting:"clearup"},

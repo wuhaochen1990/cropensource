@@ -22,10 +22,10 @@ chrome.runtime.sendMessage({greeting:"giveMeLinks"},
   
 
 function OpenResult(){
-    chrome.runtime.sendMessage({greeting: "OpenDirectly"}, 
-	     function(response){
-		    alert(response.links);
-		 });
+    //chrome.runtime.sendMessage({greeting: "OpenDirectly"}, 
+	//     function(response){
+		    //alert(response.links);
+	//	 });
 	chrome.tabs.create( {url: relaUrl}, function(){} ); 
 }
 
