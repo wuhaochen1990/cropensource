@@ -1,10 +1,48 @@
 var cache = new Array();
 var cacheFromTabs = new Array();
 var ContentJSONs = new Array();
+var userColor;
 
 //contextMenu
 creatMenu();
 
+chrome.storage.sync.get({
+    favoriteColor: 'red',
+    likesColor: true
+  }, function(items) {
+    userColor = items.favoriteColor;
+});
+  
+chrome.storage.onChanged.addListener(function(changes, namespace){
+     for (key in changes) {
+	    if(key == "favoriteColor"){
+		    var storageChange = changes[key];
+            console.log('Storage key "%s" in namespace "%s" changed. ' +
+                      'Old value was "%s", new value is "%s".',
+                      key,
+                      namespace,
+                      storageChange.oldValue,
+                      storageChange.newValue);
+			userColor = storageChange.newValue;
+		}
+    }
+	// chrome.tabs.query({currentWindow: true}, function(tabs) {
+    // var message = {foo: bar};
+    // for (var i=0; i<tabs.length; ++i) {
+        // chrome.tabs.sendMessage(tabs[i].id, message);
+    // }
+// });
+	chrome.tabs.query({currentWindow: true}, function(tabs) {
+	    var message = {greeting: "colorChanged", color : userColor};
+		for(var i =0; i<tabs.length; ++i){ 
+    	    chrome.tabs.sendMessage(tabs[i].id, message);
+		}	
+    });
+    	
+	
+	
+});
+  
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse){
 	    //if(request.greeting == "linksToBack") cache = request.links.slice();
@@ -70,6 +108,10 @@ chrome.runtime.onMessage.addListener(
 		if(request.greeting == "clearup"){
 		    ContentJSONs=[];
 		}
+		if(request.greeting == "giveMeColor"){
+		    var response = {color: userColor};
+			sendResponse(response);
+		}
 })
 
 //here are contextMenu options
@@ -124,4 +166,5 @@ chrome.contextMenus.onClicked.addListener(function(info, tab){
 		chrome.tabs.create( {url: relaUrl}, function(){} );
 		//cache = ContentJSONs;		
 	}                                   
-})
+});
+

@@ -4,12 +4,30 @@ var stat = "on";
 var ContentID = null;
 var lastTar = null;
 var count = 0;
+var userColor;
 
 $("body").append("<div id='mytooltip'>Summary<input id ='displayBar' value='div id'><button id = 'add'>add</button><button id='delete'>delete</button><div id = 'close' align = right vertical-align = top>[X]</div><div id='select'></div></div>");
 
 $("#mytooltip").click(function(e){
    // $("#mytooltip").hide(); 	
 });
+
+chrome.runtime.sendMessage({greeting: "giveMeColor"},
+    function(response){
+        userColor = response.color;
+    }
+);
+
+chrome.runtime.onMessage.addListener(
+    function(request, sender, sendResponse){
+	    if(request.greeting == "colorChanged")
+		{
+		   userColor = request.color;
+		   console.log("userColor = "+ userColor);
+		   
+		}
+	}
+);
 
 //get top by Xi
 function getTop(e){
@@ -33,7 +51,8 @@ $("body").find("div").click(
 			$(lastTar).css({"background-color":divColor});
 		}		
 	    divColor = $(this).css("background-color");
-		$(this).css({"background-color":"yellow"});
+		//alert(userColor);
+		$(this).css({"background-color": userColor});
 		ContentID = this.id.slice() ;
 		//$("#displayBar").value = ContentID;
         document.getElementById('displayBar').value = ContentID; 
