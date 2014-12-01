@@ -4,20 +4,30 @@
  var stat;
  var urlList = new Array();
   
-chrome.tabs.query({},function(tabs){
+/* chrome.tabs.query({},function(tabs){
     tabs.forEach(function(tab){
 	    var url = tab.url;
       var title = tab.title;
 		$("#urls").append("<input type='checkbox' value = "+ url + " >"+title+"<br>");
 	});
 
-});
+}); */
  
 $(document).ready(function(){
 
 var relaUrl=chrome.extension.getURL("result.html");
 
-function click(e) {
+chrome.runtime.sendMessage({greeting:"giveMeLinks"},
+    function(response){
+	    var JSONs =  response.jsons;
+		for(var index in JSONs){
+	    var url = response.jsons[index].url;
+		$("#urls").append("<input type='checkbox'  >"+url+"<br>");
+		}
+	}
+);
+
+function click(e) {                                                                                  //abandoned
   $('input:checkbox:checked').each(function(){
 	urlList.push($(this).val());
   });
@@ -75,11 +85,11 @@ function testButton(e){
 }
 
 
-$("#OpenTab").click(click);
+//$("#OpenTab").click(click);
 
-$("#ON").click(ON);
+//$("#ON").click(ON);
 
-$("#OFF").click(OFF);
+//$("#OFF").click(OFF);
 
 //elements with test in their name can be deleted
 $("body").append("<button id='testB'>sendArray</button>");
@@ -87,10 +97,10 @@ $("body").append("<button id='testB'>sendArray</button>");
 $("#testB").click(testButton);
 
 function SeeSelected(){
-    //chrome.runtime.sendMessage({greeting: "OpenDirectly"}, 
-	//     function(response){
-	//	    alert(response.links);
-	//	 });
+    chrome.runtime.sendMessage({greeting: "OpenDirectly"}, 
+	     function(response){
+		    alert(response.links);
+		 });
 	chrome.tabs.create( {url: relaUrl}, function(){} ); 
 }
 
