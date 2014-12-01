@@ -5,7 +5,7 @@ var ContentID = null;
 var lastTar = null;
 var count = 0;
 
-$("body").append("<div id='mytooltip'>Summary<input id ='displayBar' value='div id'><button id = 'add'>add</button><button id='delete'>delete</button><div id='select'></div></div>");
+$("body").append("<div id='mytooltip'>Summary<input id ='displayBar' value='div id'><button id = 'add'>add</button><button id='delete'>delete</button><div id = 'close' align = right vertical-align = top>[X]</div><div id='select'></div></div>");
 
 $("#mytooltip").click(function(e){
    // $("#mytooltip").hide(); 	
@@ -150,7 +150,8 @@ function clear(){
 
 $("#mytooltip").append("<button id = 'clean'>clear up</button>");
 $("#clean").click(clear);
-	
+
+$("#close").click(function(e){$("#mytooltip").hide();});
 
 //save for dessertert
 /* $("body").find("div").hover(
