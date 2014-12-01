@@ -7,10 +7,7 @@ window.onload = function(){
 		for(var index in jsons){	
 		 var dv = document.createElement('div');
 		 dv.setAttribute("class", "dv");
-		 
 		 var ifr=document.createElement('iframe');
-		 // ifr.setAttribute("width", document.body.clientWidth*0.95/size);
-		 // ifr.setAttribute("height", document.body.clientHeight);
 		 
 		 var url = jsons[index].url;
 		 var top = jsons[index].attr.top;
@@ -21,7 +18,6 @@ window.onload = function(){
 		// //alert(url);
 		 dv.setAttribute("style", "overflow:hidden; width:"+width);
 		 ifr.setAttribute("src",url);
-		 ifr.setAttribute("scrolling","no");
 		 ifr.setAttribute("style", "margin-top:" + (-top) + "; margin-left:" + (-left) + "; width : "+ clWidth+";height:"+(height+top)+";	");
 		 
 		 alert(top+" "+left); 

@@ -7,7 +7,7 @@ creatMenu();
 
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse){
-	    if(request.greeting == "linksToBack") cache = request.links.slice();
+	    //if(request.greeting == "linksToBack") cache = request.links.slice();
 		if(request.greeting == "giveMeLinks") {
 		   cache = ContentJSONs;
 		   var response = { jsons: cache };
