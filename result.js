@@ -20,7 +20,7 @@ window.onload = function(){
 		 ifr.setAttribute("src",url);
 		 ifr.setAttribute("style", "margin-top:" + (-top) + "; margin-left:" + (-left) + "; width : "+ clWidth+";height:"+(height+top)+";	");
 		 
-		 alert(top+" "+left); 
+		 //alert(top+" "+left); 
 		 document.body.appendChild(dv);
 		 dv.appendChild(ifr);
 	  };

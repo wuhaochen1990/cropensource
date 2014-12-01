@@ -28,14 +28,7 @@ chrome.runtime.onMessage.addListener(
 		     var response = { links : cacheFromTabs};
 			 sendResponse(response);
 		}
-		//if(request.greeting == "OpenDirectly"){
-		    /* var temp = new Array();
-			for( var index in ContentJSONs){
-			    temp.push(ContentJSONs[index].url);
-			}
-			cache = temp.slice(); */
-			//cache = ContentJSONs;
-		//}
+		
 		if(request.greeting == "deletePage"){		    
 		    var url;
 			var delIndex = new Array();
@@ -64,6 +57,9 @@ chrome.runtime.onMessage.addListener(
 		else{
 			chrome.contextMenus.update("delete", {"enabled" : false} );
 			chrome.contextMenus.update("result", {"enabled" : false} );
+		}
+		if(request.greeting == "clearup"){
+		    ContentJSONs=[];
 		}
 })
 

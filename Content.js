@@ -138,6 +138,18 @@ function delet(e){
 
 $("#delete").click(delet);
 
+function clear(){
+    chrome.runtime.sendMessage({greeting:"clearup"},
+	function(response){
+	});
+	var fm = document.getElementById('select');
+	while(fm.firstChild){
+	    fm.removeChild(fm.firstChild);
+	}
+}	
+
+$("#mytooltip").append("<button id = 'clean'>clear up</button>");
+$("#clean").click(clear);
 	
 
 //save for dessertert
