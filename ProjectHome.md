@@ -1,0 +1,1 @@
+It is an extension for merging several tabs into one and display it in a new tab
